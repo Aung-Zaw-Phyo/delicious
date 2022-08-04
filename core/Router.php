@@ -4,7 +4,7 @@ namespace core;
 
 class Router {
 
-    public $routes = [
+    protected $routes = [
         'GET' => [],
         'POST' => []
     ];
