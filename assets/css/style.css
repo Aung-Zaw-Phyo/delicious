@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;1,300&family=Open+Sans:ital,wght@0,500;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,700&family=Roboto:wght@300&family=Source+Sans+Pro:ital,wght@0,200;1,200&family=The+Nautigal:wght@400;700&display=swap');
+
+.fonts {
+    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.fixDropdown{
+    list-style: none;
+    position: absolute;
+    left: -200% !important;
+    margin-top: 15px !important;
+    background-color: ;
+}
+.menu{
+    height: 3px;
+    width: 35px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 2px;
+}
+.fs{
+    font-size: 16px !important;
+    font-weight: 500;
+}
+.menuContainer{
+    cursor: pointer;
+}
+.line1, .line2, .line3{
+    transition: all .3s;
+}
+.overlay{
+    transition: all .1s;
+}
+.remove{
+    opacity: 0;
+}
+.line1Deg{
+    transform: rotate(45deg) translate(7px, 5px);
+}
+.line3Deg{
+    transform: rotate(-45deg) translate(6px, -5px);
+}
+.overlay{
+    opacity: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 5px;
+    position: fixed;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    bottom: 0 !important;
+    /* background-color: rgba(255, 0, 238, 0.756); */
+    background-color: rgba(4, 4, 77, 0.452);
+    z-index: -1;
+}
+.opacityAndZindex{
+    opacity: 1;
+    z-index: 100 !important;
+}
+.navUpDown{
+    background-color: transparent;
+    padding: 30px 0;
+    transition: all .2s;
+}
+.navPadAndBc{
+    background-color: rgb(28, 32, 42);
+    padding: 13px 0;
+}
+
+/* navbar end  */
+.normal-bold {
+    font-weight: 500;
+}
+.normal-color {
+    color: rgb(121, 165, 34);
+}
+.normal-fs {
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+/* homepage start  */
+
+.heroFont {
+    font-size: 67px;
+    font-family: 'Playfair Display', serif;
+}
+
+.homeHeroSection{
+    width: 100%;
+    height: 100vh;
+    background-image: url('/assets/img/hero-bg.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.homeHeroSection > .home {
+    background-color: rgba(11, 29, 41, 0.605);
+}
+
+.radius {
+    border-radius: 17px;
+}
+
+.homeServiceSection{
+    background-color: whitesmoke;
+}
+
+.head_underline{
+    height: 3px;
+    width: 75px;
+    background-color: rgb(121, 165, 34);
+    margin: auto;
+}
+
+.productCard {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 20px;
+    transition: all .2s;
+}
+.productCard:hover {
+    box-shadow: none;
+}
+
+.productBtn{
+    border: none;
+    padding: 10px 19px;
+    border-radius: 20px;
+    background-color: rgb(127, 171, 39);
+    color: white;
+    font-weight: 500;
+    transition: all .2s;
+}
+.productBtn:hover {
+    background-color: black;
+    color: ;
+}
+
+.homeSmallDiscountSection{
+    background-color: rgb(246,246,246);
+}
+
+.timeBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+}
+
+.shopOwnerText{
+    font-family: 'Merriweather', serif;
+}
+
+.homeBigDiscountSection {
+    width: 100%;
+    height: 500px;
+    background-image: url('/assets/img/1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.read-more {
+    color: black;
+    font-style: italic;
+    font-size: 17px;
+}
+
+.news-card {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 15px;
+    transition: all .2s;
+}
+
+.news-card > img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.news-card:hover {
+    box-shadow: none;
+}
+
+.footerSection{
+    background-color: rgba(2, 5, 19, 0.881);
+}
+
+.smUnderline {
+    height: 2px;
+    width: 35px;
+    background-color: rgb(121, 165, 34);
+}
+
+.footerliText{
+    transition: all .2s;
+}
+.footerLi:hover .footerliText{
+    color: rgb(121, 165, 34);
+}
+
+.footerDivider{
+    height: .1px;
+    width: 97%;
+    margin: auto;
+    background-color: lightgray;
+}
+
+.footerIcon {
+    color: white;
+    font-size: 19px;
+}
+.footerIcon:hover {
+    color: yellow;
+}
+
+/* homepage start  */
+
+/* about page start  */
+
+.aboutHeroSection{
+    width: 100%;
+    height: 90vh;
+    background-image: url('/assets/img/breadcrumb-bg.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.aboutHeroSection > .about {
+    background-color: rgba(11, 29, 41, 0.689);
+}
+
+.teamPerson {
+    width: 100%;
+    height: 460px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.teamPersonOne{
+    background-image: url('/assets/img/team/team-1.jpg');
+}
+.teamPersonTwo{
+    background-image: url('/assets/img/team/team-2.jpg');
+}
+.teamPersonThree{
+    background-image: url('/assets/img/team/team-3.jpg');
+}
+
+.teamPersonIcon {
+    background-color: rgb(114, 156, 31);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.teamPersonIcon:hover {
+    background-color: black;
+    color: red;
+}
+
+/* about page end  */
+
+.product-table{
+    text-align: center;
+    vertical-align:middle;
+}
+
+@media screen and (max-width: 992px) {
+    .heroFont {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .heroFont {
+        font-size: 43px;
+    }
+}
