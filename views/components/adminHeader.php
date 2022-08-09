@@ -135,20 +135,20 @@
                     <div class="adminNavSide shadow-sm">
 
                         <div class="mb-3">
-                            <div class="accordion " id="accordionExample">
+                            <div class="accordion " id="accordionExampleTwo">
                                 <div class="accordion-item  bg-transparent">
                                     <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <i class="fa-solid fa-crate-apple"></i> Products
                                     </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExampleTwo">
                                     <div class="accordion-body">
                                         <ul class="list-unstyled">
-                                            <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
+                                            <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark admin_link_icon">
                                                 <i class="fa-solid fa-circle-check me-2 "></i> </i>Products
                                             </a></li>
-                                            <li><a href="admin_index" class="text-decoration-none text-dark">
+                                            <li><a href="product_create" class="text-decoration-none text-dark admin_link_icon">
                                                 <i class="fa-solid fa-circle-check me-2 "></i> Create
                                             </a></li>
                                         </ul>
@@ -161,13 +161,13 @@
                                         News
                                     </button>
                                     </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExampleTwo">
                                         <div class="accordion-body">
                                             <ul class="list-unstyled">
-                                                <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
+                                                <li class="mb-2"><a href="admin_news" class="text-decoration-none text-dark admin_link_icon">
                                                     <i class="fa-solid fa-circle-check me-2 "></i> </i>News
                                                 </a></li>
-                                                <li><a href="admin_index" class="text-decoration-none text-dark">
+                                                <li><a href="news_create" class="text-decoration-none text-dark admin_link_icon">
                                                     <i class="fa-solid fa-circle-check me-2 "></i> Create
                                                 </a></li>
                                             </ul>                                    
@@ -180,13 +180,13 @@
                                         Categories
                                     </button>
                                     </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExampleTwo">
                                         <div class="accordion-body">
                                             <ul class="list-unstyled">
-                                                <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
+                                                <li class="mb-2"><a href="admin_category" class="text-decoration-none text-dark admin_link_icon">
                                                     <i class="fa-solid fa-circle-check me-2 "></i> </i>Categories
                                                 </a></li>
-                                                <li><a href="admin_index" class="text-decoration-none text-dark">
+                                                <li><a href="category_create" class="text-decoration-none text-dark admin_link_icon">
                                                     <i class="fa-solid fa-circle-check me-2 "></i> Create
                                                 </a></li>
                                             </ul>                                  

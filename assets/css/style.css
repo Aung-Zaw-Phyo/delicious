@@ -312,17 +312,18 @@
 }
 
 .adminNavSideContainer {
-    width: 290px;
+    width: 320px;
     position: relative;
 }
 
 .adminNavSide {
     background-color: white;
-    width: 260px !important;
+    width: 240px !important;
     padding: 10px;
     border-radius: 10px;
     height: 80%;
     position: fixed;
+    overflow-y: auto;
 }
 
 .adminNavOverContainer {
@@ -350,6 +351,10 @@
 
 .adminNavOverContainerchange {
     margin-top: initial;
+}
+
+.admin_link_icon:hover {
+    color: blue !important;
 }
 
 

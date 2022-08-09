@@ -35,7 +35,7 @@ class Router {
     public function callAction ($class, $method) {
         //(new class)->method();
 
-        $class = new $class;
+        $class = new $class();
         $class->$method();
     }
 
