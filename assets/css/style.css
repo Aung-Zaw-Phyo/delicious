@@ -288,6 +288,73 @@
     vertical-align:middle;
 }
 
+
+/* admin dashboard  */
+.adminNavbar {
+    background-color: rgb(34,40,52);
+}
+
+
+.adminMenuContainer {
+    cursor: pointer;
+}
+
+.adminMenu {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 2px;
+}
+
+.adminLine1, .adminLine2, .adminLine3 {
+    transition: all .3s;
+}
+
+.adminNavSideContainer {
+    width: 290px;
+    position: relative;
+}
+
+.adminNavSide {
+    background-color: white;
+    width: 260px !important;
+    padding: 10px;
+    border-radius: 10px;
+    height: 80%;
+    position: fixed;
+}
+
+.adminNavOverContainer {
+    position: fixed;
+    width: 100% ;
+    height: 100vh;
+    padding: 30px;
+    background-color: rgba(34, 40, 52, 0.883);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s;
+    margin-top: -800px;
+}
+
+.adminNavOver {
+    background-color: white;
+    height: 90%;
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 50px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.adminNavOverContainerchange {
+    margin-top: initial;
+}
+
+
+/* admin end  */
+
 @media screen and (max-width: 992px) {
     .heroFont {
         font-size: 60px;

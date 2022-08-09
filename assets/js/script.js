@@ -1,3 +1,4 @@
+
 const menuContainerTag = document.querySelector('.menuContainer');
 const line1Tag = document.querySelector('.line1');
 const line2Tag = document.querySelector('.line2');
@@ -30,3 +31,5 @@ window.addEventListener("scroll", ()=>{
         navUpDown.classList.remove( 'navPadAndBc');
     }
 });
+
+
