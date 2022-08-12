@@ -2,6 +2,7 @@
 
     <div class="p-2 w-100">
         <div class="p-3 pb-5 w-100" style="background-color: white;">
+        <?php take('views/components/err.php') ?>
             <div class="row">
                 <div class="col-12">
                 <h3 class="text-center"> Categories </h3>
@@ -16,50 +17,28 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <?php
+                            $count = 0;
+                            foreach ($categories as $category) : 
+                                $count += 1;
+                        ?>
                         <tr>
-                            <th class="product-table" scope="row">1</th>
-                            <td class="product-table">Strawberry about</td>
-                            <td class="product-table">3 days ago</td>
+                            <th class="product-table" scope="row"> <?= $count ?> </th>
+                            <td class="product-table"> <?= $category->name ?> </td>
+                            <td class="product-table"> <?=  date("F j, Y, g:i a", strtotime($category->created_at)) ?> </td>
                             <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
+                                <a href="categories_edit?id=<?= $category->id ?>" class="btn btn-sm btn-primary m-2">Edit</a>
                             </td>
                             <td class="product-table">
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
+                                <form action="categories_delete" method="POST">
+                                    <input type="hidden" name="id" value="<?= $category->id ?>">
+                                    <button type="submit" name="submit" class="btn btn-sm btn-danger m-2"
+                                    onclick="return confirm ('Are you sure you want to delete?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
-                        <tr>
-                            <th class="product-table" scope="row">1</th>
-                            <td class="product-table">Strawberry about</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                            </td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">1</th>
-                            <td class="product-table">Strawberry about</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                            </td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">1</th>
-                            <td class="product-table">Strawberry about</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                            </td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>

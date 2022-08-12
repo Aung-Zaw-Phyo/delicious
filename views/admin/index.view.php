@@ -2,6 +2,7 @@
 
     <div class="p-2 w-100">
         <div class="p-3 pb-5 w-100" style="background-color: white;">
+        <?php take('views/components/err.php') ?>
             <div class="row">
                 <div class="col-12">
                 <h3 class="text-center"> Products </h3>
@@ -18,162 +19,30 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <?php
+                        $count = 0;
+                        foreach($products as $product) : 
+                            $count += 1;    
+                        ?>
                         <tr>
-                            <th class="product-table" scope="row">1</th>
+                            <th class="product-table" scope="row"> <?= $count ?> </th>
                             <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-1.jpg" alt="">
+                                <img class="" width="50" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                             </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
+                            <td class="product-table"><?= $product->name ?></td>
+                            <td class="product-table"> <?= $product->price ?> </td>
+                            <td class="product-table"> <?=  date("F j, Y, g:i a", strtotime($product->created_at)) ?> </td>
+                            <td class="product-table d-flex">
+                                <a href="products_edit?id=<?= $product->id ?>" class="btn btn-sm btn-primary m-2">Edit</a>
+                                <form action="products_delete" method="POST">
+                                    <input type="hidden" name="id" value="<?= $product->id ?>">
+                                    <button type="submit" name="submit" class="btn btn-sm btn-danger m-2"
+                                    onclick="return confirm ('Are you sure you want to delete?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
-                        <tr>
-                            <th class="product-table" scope="row">2</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-2.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">3</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-3.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">4</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-4.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="product-table" scope="row">5</th>
-                            <td class="product-table">
-                                <img class="" width="50" src="/assets/img/products/product-img-5.jpg" alt="">
-                            </td>
-                            <td class="product-table">Strawberry</td>
-                            <td class="product-table">$12</td>
-                            <td class="product-table">3 days ago</td>
-                            <td class="product-table">
-                                <button class="btn btn-sm btn-primary m-2">Edit</button>
-                                <button class="btn btn-sm btn-danger m-2">Delete</button>
-                            </td>
-                        </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
@@ -181,8 +50,6 @@
             </div>
         </div>
     </div>
-           
-    
 
 <?php require 'views/components/adminFooter.php'; ?>
 

@@ -5,20 +5,25 @@
         <?php take('views/components/err.php') ?>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <h3 class="text-center">News Create Form</h3>
+                    <h3 class="text-center">News Edit Form</h3>
                     <div class="card p-3 px-4 shadow mt-5">
-                        <form action="post_news" method="POST" enctype="multipart/form-data">
+                        <form action="update_news" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="id"  value="<?= $news->id ?>">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="News title ...">
+                                <input type="text" value="<?= $news->title ?>" class="form-control" name="title" id="title" placeholder="News title ...">
                             </div>
                             <div class="mb-3">
                                 <label for="body" class="form-label">Body</label>
-                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5"></textarea>
+                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5">
+                                <?= $news->body ?> 
+                                </textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                                <input type="file" class="form-control" name="thumbnail" id="thumbnail" placeholder="News Img ...">
+                                <input type="file" class="form-control mb-2" name="thumbnail" id="thumbnail" placeholder="News Img ...">
+                                <img width="60" src="/assets/uploads/news/<?= $news->thumbnail ?>" alt="">
+                                <input type="hidden" name="oldThumbnail"  value="<?= $news->thumbnail ?>">
                             </div>
                             <button class="btn btn-primary" name="submit" type="submit">Submit</button>
                         </form>

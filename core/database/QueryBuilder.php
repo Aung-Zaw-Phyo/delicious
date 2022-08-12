@@ -2,6 +2,7 @@
 
 namespace core\database;
 
+use Exception;
 use PDO;
 
 class QueryBuilder {
@@ -13,6 +14,13 @@ class QueryBuilder {
 
     public function fetchAll ($table) {
         $sql = "SELECT * FROM $table";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function fetch ($table, $id) {
+        $sql = "SELECT * FROM $table WHERE id=$id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
@@ -50,5 +58,15 @@ class QueryBuilder {
         $sql = "DELETE FROM $table WHERE id=$id";
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
+    }
+
+    public function isExist ($table, $col, $data) {
+        //select * from categories where name=?
+        
+        $sql = "SELECT * FROM $table WHERE $col=?";
+        // dd($sql);
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$data]);
+        return $statement->rowCount();
     }
 }

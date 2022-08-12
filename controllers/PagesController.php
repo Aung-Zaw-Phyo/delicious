@@ -38,8 +38,7 @@ class PagesController {
         return view('pages/order');
     }
 
-    public function post () {
-        dd('hit');
+    public function single_news () {
+        return view('pages/single_news');
     }
-
 }

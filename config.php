@@ -3,7 +3,7 @@
 return [
     'database' => [
         'host' => 'localhost',
-        'name' => 'todo',
+        'name' => 'fruitkha',
         'user' => 'root',
         'pass' => ''
     ]
