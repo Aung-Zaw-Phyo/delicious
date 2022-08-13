@@ -18,7 +18,7 @@ function take ($file) {
 function checkCount ($data,int $count, $uri, $err=null) {
     if (!(strlen($data)>$count)) {
         if ($err) {
-            setcookie('err', $err, time() + 2);
+            setcookie('err', $err, time() + 1);
         }
         header("location: $uri");
         exit();
@@ -27,7 +27,7 @@ function checkCount ($data,int $count, $uri, $err=null) {
 
 function redirect ($uri, $err=null) {
     if($err){
-        setcookie('err', $err, time() + 2);
+        setcookie('err', $err, time() + 1);
     }
     header("location: $uri");
     exit();

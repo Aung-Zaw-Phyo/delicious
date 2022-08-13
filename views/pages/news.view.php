@@ -20,43 +20,43 @@
             </div>
 
             <div class="row g-3 mt-5">
-                <?php foreach ([1,2,3,4,5,6] as $one): ?>
+                <?php foreach ($news as $new): ?>
                 <div class="col-md-6 col-lg-4 p-3">
                     <div class="card news-card border border-0">
-                        <img src="/assets/img/latest-news/news-bg-1.jpg" alt="">
+                        <img src="/assets/uploads/news/<?= $new->thumbnail ?>" alt="">
                         <div class="p-3 py-4">
-                            <div class="fw-bold lh-sm fs-4" >You will vainly look for fruit on it in autumn.</div>
+                            <div class="fw-bold lh-sm fs-4" ><?= $new->title ?></div>
                             <div class="text-secondary my-3">
                                 <span class="me-3"><i class="fa-solid fa-user"></i> Admin</span>
                                 <span><i class="fa-solid fa-calendar"></i> 27 December, 2019</span>
                             </div>
                             <div class="normal-fs mb-4">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis tenetur odit illo aperiam sit laborum placeat dicta quis deleniti recusandae.
+                                <?= substr($new->body, 0, 50) ?>
                             </div>
-                            <a href="" class="text-decoration-none fw-bold read-more"> read more <i class="fa-solid fa-chevron-right" style="font-size:small;"></i></a>
+                            <a href="single_news?id=<?= $new->id ?>" class="text-decoration-none fw-bold read-more"> read more <i class="fa-solid fa-chevron-right" style="font-size:small;"></i></a>
                         </div>
                     </div>
                 </div>
                 <?php endforeach ?>
             </div>
 
-            <div class="mt-5 d-flex justify-content-center">
-                <nav aria-label="..." >
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <?php if($counts > 8): ?>
+                <div class="mt-5 d-flex justify-content-center">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <?php
+                                $t = 0;
+                                for($i=0; $i<$counts; $i+=6): 
+                                    $t ++;
+                            ?>
+                                <li class="page-item <?= $t==$page?'active':'' ?>">
+                                    <a class="page-link" href="news?page=<?= $t?>"> <?= $t?> </a>
+                                </li>
+                            <?php endfor ?>
+                        </ul>
+                    </nav>
+                </div>
+            <?php endif ?>
         </div>
     </div>
 

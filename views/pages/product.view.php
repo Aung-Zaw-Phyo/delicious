@@ -25,14 +25,14 @@
                 <a href="#" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">Lemon</a>
             </div>
             <div class="row g-3 mt-5">
-                <?php foreach([1,2,3,4,5,6,7,8] as $one) :?>
+                <?php foreach($products as $product) :?>
                 <div class="col-sm-6 col-lg-3 p-3">
                     <div class="productCard card border border-0 text-center">
-                        <img class="p-2" src="assets/img/products/product-img-1.jpg" alt="">
+                        <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">
-                            <div class="normal-bold fs-5">Strawberry</div>
+                            <div class="normal-bold fs-5"><?= $product->name ?></div>
                             <div class="mt-2">Per Kg</div>
-                            <div class="normal-bold fs-3">85$</div>
+                            <div class="normal-bold fs-3"><?= $product->price ?>$</div>
                             <button class="productBtn mt-3">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 Add to Cart
@@ -42,24 +42,23 @@
                 </div>
                 <?php endforeach ?>
             </div>
-
-            <div class="mt-5 d-flex justify-content-center">
-                <nav aria-label="...">
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <?php if($counts > 8): ?>
+                <div class="mt-5 d-flex justify-content-center">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <?php
+                                $t = 0;
+                                for($i=0; $i<$counts; $i+=8): 
+                                    $t ++;
+                            ?>
+                                <li class="page-item <?= $t==$page?'active':'' ?>">
+                                    <a class="page-link" href="product?page=<?= $t?>"> <?= $t?> </a>
+                                </li>
+                            <?php endfor ?>
+                        </ul>
+                    </nav>
+                </div>
+            <?php endif ?>
 
         </div>
     </div>

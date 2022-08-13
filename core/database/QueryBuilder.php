@@ -19,6 +19,23 @@ class QueryBuilder {
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function fetchAllLimit ($table, $start, $end=null) {
+        $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT $start";
+        if($end){
+            $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT $start, $end";
+        }
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function count ($table) {
+        $sql = "SELECT * FROM $table";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->rowCount();
+    }
+
     public function fetch ($table, $id) {
         $sql = "SELECT * FROM $table WHERE id=$id";
         $statement = $this->pdo->prepare($sql);

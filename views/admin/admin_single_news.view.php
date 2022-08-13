@@ -10,20 +10,21 @@
             
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12 col-lg-10 p-1">
+                                    <?php foreach ($news as $new) : ?>
                                     <div>
-                                        <img class="w-100 rounded" src="/assets/uploads/news/<?= $news->thumbnail ?>" alt="">
+                                        <img class="w-100 rounded" src="/assets/uploads/news/<?= $new->thumbnail ?>" alt="">
                                         <div class="p-3 py-4">
                                             <div class="text-secondary">
                                                 <span class="me-3"><i class="fa-solid fa-user"></i> Admin</span>
                                                 <span><i class="fa-solid fa-calendar"></i> 27 December, 2019</span>
                                             </div>
-                                                <div class="fw-bold lh-sm fs-4 my-3 mt-4" ><?= $news->title ?></div>
+                                                <div class="fw-bold lh-sm fs-4 my-3 mt-4" ><?= $new->title ?></div>
                                                 <div class="normal-fs mb-4">
-                                                    <?= $news->body ?>
+                                                    <?= $new->body ?>
                                                 </div>
                                         </div>
                                     </div>
-
+                                    <?php endforeach ?>
                                     <div class="mt-4">
                                         <h3 class="fw-bold mb-5">3 Comments</h3>
                                         <div class="d-flex mb-4">

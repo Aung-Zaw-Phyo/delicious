@@ -65,13 +65,14 @@
             </div>
 
             <div class="row g-3 mt-5">
+                <?php foreach ( $products as $product ) : ?>
                 <div class="col-sm-6 col-lg-3 p-3">
                     <div class="productCard card border border-0 text-center">
-                        <img class="p-2" src="assets/img/products/product-img-1.jpg" alt="">
+                        <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">
-                            <div class="normal-bold fs-5">Strawberry</div>
+                            <div class="normal-bold fs-5"><?= $product->name ?></div>
                             <div class="mt-2">Per Kg</div>
-                            <div class="normal-bold fs-3">85$</div>
+                            <div class="normal-bold fs-3"><?= $product->price ?>$</div>
                             <button class="productBtn mt-3">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 Add to Cart
@@ -79,48 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3 p-3">
-                    <div class="productCard card border border-0 text-center">
-                        <img class="p-2" src="assets/img/products/product-img-2.jpg" alt="">
-                        <div class="pb-5">
-                            <div class="normal-bold fs-5">Strawberry</div>
-                            <div class="mt-2">Per Kg</div>
-                            <div class="normal-bold fs-3">85$</div>
-                            <button class="productBtn mt-3">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 p-3">
-                    <div class="productCard card border border-0 text-center">
-                        <img class="p-2" src="assets/img/products/product-img-3.jpg" alt="">
-                        <div class="pb-5">
-                            <div class="normal-bold fs-5">Strawberry</div>
-                            <div class="mt-2">Per Kg</div>
-                            <div class="normal-bold fs-3">85$</div>
-                            <button class="productBtn mt-3">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 p-3">
-                    <div class="productCard card border border-0 text-center">
-                        <img class="p-2" src="assets/img/products/product-img-6.jpg" alt="">
-                        <div class="pb-5">
-                            <div class="normal-bold fs-5">Strawberry</div>
-                            <div class="mt-2">Per Kg</div>
-                            <div class="normal-bold fs-3">85$</div>
-                            <button class="productBtn mt-3">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
     </div>

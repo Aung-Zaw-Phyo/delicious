@@ -7,8 +7,17 @@ use core\App;
 class AdminController {
 
     public function index () {
+        $start = 1;
+        if ( isset($_GET['page']) ) {
+            $point = $_GET['page'] * 10;
+            $start = $point - 10;
+        }
+
+        $fetchAll = App::get('db')->fetchAllLimit('products', $start, 10);
         return view('admin/index', [
-            'products' => App::get('db')->fetchAll('products')
+            'page' => $_GET['page']??$start,
+            'counts' => App::get('db')->count('products'),
+            'products' => $fetchAll
         ]);
     }
 
@@ -111,8 +120,17 @@ class AdminController {
     }
 
     public function admin_news () {
+        $start = 1;
+        if ( isset($_GET['page']) ) {
+            $point = $_GET['page'] * 10;
+            $start = $point - 10;
+        }
+
+        $fetchAll = App::get('db')->fetchAllLimit('news', $start, 10);
         return view('admin/admin_news', [
-            'news' => App::get('db')->fetchAll('news')
+            'page' => $_GET['page']??$start,
+            'counts' => App::get('db')->count('news'),
+            'news' => $fetchAll
         ]);
     }
 
@@ -150,7 +168,7 @@ class AdminController {
         $id = $_GET['id'];
         $news = App::get('db')->fetch('news', $id);
         return view('admin/admin_single_news', [
-            'news' => $news[0]
+            'news' => $news
         ]);
     }
 
@@ -202,8 +220,17 @@ class AdminController {
     }
 
     public function admin_category () {
+        $start = 1;
+        if ( isset($_GET['page']) ) {
+            $point = $_GET['page'] * 10;
+            $start = $point - 10;
+        }
+
+        $fetchAll = App::get('db')->fetchAllLimit('categories', $start, 10);
         return view('admin/admin_category', [
-            'categories' => App::get('db')->fetchAll('categories')
+            'page' => $_GET['page']??$start,
+            'counts' => App::get('db')->count('categories'),
+            'categories' => $fetchAll
         ]);
     }
 

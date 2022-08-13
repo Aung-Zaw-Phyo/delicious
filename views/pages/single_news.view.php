@@ -16,22 +16,21 @@
             
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-8 p-3">
+                    <?php foreach ($news as $new) : ?>
                     <div>
-                        <img class="w-100 rounded" src="/assets/img/latest-news/news-bg-3.jpg" alt="">
+                        <img class="w-100 rounded" src="/assets/uploads/news/<?= $new->thumbnail ?>" alt="">
                         <div class="p-3 py-4">
                             <div class="text-secondary">
                                 <span class="me-3"><i class="fa-solid fa-user"></i> Admin</span>
                                 <span><i class="fa-solid fa-calendar"></i> 27 December, 2019</span>
                             </div>
-                                <div class="fw-bold lh-sm fs-4 my-3 mt-4" >You will vainly look for fruit on it in autumn.</div>
+                                <div class="fw-bold lh-sm fs-4 my-3 mt-4" ><?= $new->title ?></div>
                                 <div class="normal-fs mb-4">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint soluta, similique quidem fuga vel voluptates amet doloremque corrupti. Perferendis totam voluptates eius error fuga cupiditate dolorum? Adipisci mollitia quod labore aut natus nobis. Rerum perferendis, nobis hic adipisci vel inventore facilis rem illo, tenetur ipsa voluptate dolorem, cupiditate temporibus laudantium quidem recusandae expedita dicta cum eum. Quae laborum repellat a ut, voluptatum ipsa eum. Culpa fugiat minus laborum quia nam!
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, praesentium, dicta. Dolorum inventore molestias velit possimus, dolore labore aliquam aperiam architecto quo reprehenderit excepturi ipsum ipsam accusantium nobis ducimus laudantium.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum est aperiam voluptatum id cupiditate quae corporis ex. Molestias modi mollitia neque magni voluptatum, omnis repudiandae aliquam quae veniam error! Eligendi distinctio, ab eius iure atque ducimus id deleniti, vel alias sint similique perspiciatis saepe necessitatibus non eveniet, quo nisi soluta.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt beatae nemo quaerat, doloribus obcaecati odio!
+                                    <?= $new->body ?>
                                 </div>
                         </div>
                     </div>
+                    <?php endforeach ?>
 
                     <div class="mt-4">
                         <h3 class="fw-bold mb-5">3 Comments</h3>
