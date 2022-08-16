@@ -166,7 +166,7 @@ class AdminController {
 
     public function admin_single_news () {
         $id = $_GET['id'];
-        $news = App::get('db')->fetch('news', $id);
+        $news = App::get('db')->fetch('news','id' ,$id);
         return view('admin/admin_single_news', [
             'news' => $news
         ]);

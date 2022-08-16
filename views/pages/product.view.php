@@ -19,14 +19,22 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam libero odio labore repellat odit et sapiente accusantium ea nam illum?
             </div>
             <div class="mt-5 d-flex justify-content-center flex-wrap">
-                <a href="#" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">All</a>
-                <a href="#" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">Strawberry</a>
-                <a href="#" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">Berry</a>
-                <a href="#" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">Lemon</a>
+                <a href="product" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3">All</a>
+                <?php foreach($categories as $category): ?>
+                    <?php if (isset($_GET['category'])) { ?>
+                        <?php if ($_GET['category'] == $category->name) { ?>
+                            <a href="product?category=<?= $category->name ?>" class="active btn btn-outline-dark normal-fs fw-bold fst-italic m-3"><?= $category->name ?></a>
+                        <?php }else { ?>
+                            <a href="product?category=<?= $category->name ?>" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3"><?= $category->name ?></a>
+                        <?php } ?>
+                    <?php }else { ?>
+                        <a href="product?category=<?= $category->name ?>" class="btn btn-outline-dark normal-fs fw-bold fst-italic m-3"><?= $category->name ?></a>
+                    <?php } ?>
+                <?php endforeach ?>
             </div>
             <div class="row g-3 mt-5">
                 <?php foreach($products as $product) :?>
-                <div class="col-sm-6 col-lg-3 p-3">
+                    <div class="col-sm-6 col-lg-3 p-3">
                     <div class="productCard card border border-0 text-center">
                         <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">
@@ -52,7 +60,7 @@
                                     $t ++;
                             ?>
                                 <li class="page-item <?= $t==$page?'active':'' ?>">
-                                    <a class="page-link" href="product?page=<?= $t?>"> <?= $t?> </a>
+                                    <a class="page-link" href="product?<?= isset($_GET['category'])?'category='.$_GET['category'].'&':'' ?>page=<?= $t?>"> <?= $t?> </a>
                                 </li>
                             <?php endfor ?>
                         </ul>

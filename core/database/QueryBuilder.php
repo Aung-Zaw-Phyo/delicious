@@ -28,16 +28,29 @@ class QueryBuilder {
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
+    
+    public function join ($table, $secTable, $col, $secCol) {
+        $sql = " SELECT $table.*, $secTable.name AS category FROM $table LEFT JOIN $secTable ON $table.$col = $secTable.$secCol ";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
 
-    public function count ($table) {
+    public function count ($table, $col=null, $data=null) {
         $sql = "SELECT * FROM $table";
+        if ($col && $data){
+            $sql = "SELECT * FROM $table WHERE $col='$data'";
+        }
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->rowCount();
     }
 
-    public function fetch ($table, $id) {
-        $sql = "SELECT * FROM $table WHERE id=$id";
+    public function fetch ($table, $col, $data, $start=null, $count=null) {
+        $sql = "SELECT * FROM $table WHERE $col='$data' ORDER BY id DESC";
+        if ($start OR $count){
+            $sql = "SELECT * FROM $table WHERE $col='$data' ORDER BY id DESC LIMIT $start, $count";
+        }
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_OBJ);
