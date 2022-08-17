@@ -32,7 +32,10 @@
     </div>
     <nav class="navUpDown navbar fixed-top navbar-expand navbar-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><img width="130" src="/assets/img/logo.png" alt=""></a>
+            <a class="navbar-brand fw-bold" href="/"><img width="130" src="/assets/img/logo.png" alt=""></a>
+            <?php if (isset($_SESSION['user']) && $_SESSION['user']['is_admin']) : ?>
+                <a href="admin_index">dashboard</a>
+            <?php endif ?>
             <div class="ms-auto menuContainer d-lg-none">
                 <div class="menu line1"></div>
                 <div class="menu line2"></div>
@@ -75,10 +78,19 @@
                         <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-user  "></i>
                         </a>
-                        <ul class="dropdown-menu fixDropdown"  aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item fs" href="#">logout</a></li>
-                            <li><a class="dropdown-item fs" href="#">username: johndoe</a></li>
-                            <li><a class="dropdown-item fs" href="#"></a></li>
+                        <ul class="dropdown-menu fixDropdown shadow text-center"  aria-labelledby="navbarDropdown">
+                            
+                            <?php if (isset($_SESSION['user'])) { ?>
+                                <li class=""><span class="dropdown-item text-break" href="login">username: <?= $_SESSION['user']['username'] ?> </span></li>
+                                <li>
+                                    <form action="logout" method="POST">
+                                        <button type="submit" name="submit" class="dropdown-item fs text-primary" href="logout">Logout</button>
+                                    </form>
+                                </li>
+                            <?php }else { ?>
+                                <li><a class="dropdown-item fs text-primary" href="login">Login</a></li>
+                                <li><a class="dropdown-item fs text-primary" href="register">Register</a></li>
+                            <?php } ?>
                         </ul>
                     </li>
                 </ul>

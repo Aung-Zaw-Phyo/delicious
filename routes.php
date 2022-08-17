@@ -1,6 +1,7 @@
 <?php
 
 use controllers\AdminController;
+use controllers\AuthController;
 use controllers\PagesController;
 
 $router->get('', [PagesController::class, 'index']);
@@ -40,3 +41,12 @@ $router->post('products_delete', [AdminController::class, 'products_delete']);
 $router->post('news_delete', [AdminController::class, 'news_delete']);
 $router->post('categories_delete', [AdminController::class, 'categories_delete']);
 
+
+// Authentication 
+
+$router->get('login', [AuthController::class, 'login']);
+$router->get('register', [AuthController::class, 'register']);
+
+$router->post('register', [AuthController::class, 'post_register']);
+$router->post('login', [AuthController::class, 'post_login']);
+$router->post('logout', [AuthController::class, 'logout']);

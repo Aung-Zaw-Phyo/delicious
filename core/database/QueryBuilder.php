@@ -68,6 +68,7 @@ class QueryBuilder {
         $statement = $this->pdo->prepare($sql);
         $values = array_values($dataArr);
         $statement->execute($values);
+        return $statement->rowCount();
     }
 
     public function update ($table, $dataArr, $id) {

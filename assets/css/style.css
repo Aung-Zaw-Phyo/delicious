@@ -15,7 +15,8 @@
     list-style: none;
     position: absolute;
     left: -200% !important;
-    margin-top: 15px !important;
+    max-width: 200px !important;
+    margin-top: 23px !important;
     background-color: ;
 }
 .menu{

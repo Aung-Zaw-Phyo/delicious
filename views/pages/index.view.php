@@ -2,6 +2,7 @@
 
     <div class="homeHeroSection">
         <div class="home h-100 w-100">
+        <?php require "views/components/pagesErr.php" ?>
             <div class="container d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 text-center p-2">
                     <div class="fw-bold text-warning "> <span>F R E S H </span> &nbsp; & &nbsp; <span> O R G A N I C</span> </div>
