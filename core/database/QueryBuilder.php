@@ -19,6 +19,20 @@ class QueryBuilder {
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function fetchRandom ($table, $count) {
+        $sql = "SELECT * FROM $table ORDER BY RAND() LIMIT $count";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function fetchSearch ($table, $search) {
+        $sql = "SELECT * FROM $table WHERE name LIKE ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute(['%'.$search.'%']);
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function fetchAllLimit ($table, $start, $end=null) {
         $sql = "SELECT * FROM $table ORDER BY id DESC LIMIT $start";
         if($end){

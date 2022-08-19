@@ -92,9 +92,12 @@
                         </ul>
                     </li>
                 </ul>
-                <a href="#" class="nav-link text-light  px-1  me-2 ms-1">
+                <div>
+                <a href="search" class="nav-link text-light  px-1  me-2 ms-1" >
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
+                
+                </div>
                 <a href="cart" class="nav-link text-light position-relative px-1 me-3 ">
                     <i class="fa-solid fa-cart-shopping "></i>
                     <!-- <span class="position-absolute top-75 start-100 ms-2 translate-middle badge rounded-pill bg-secondary">
@@ -105,3 +108,12 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', function () {
+        myInput.focus()
+        })
+    </script>

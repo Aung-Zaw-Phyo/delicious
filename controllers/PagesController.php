@@ -129,4 +129,18 @@ class PagesController {
             redirect("single_news?id=$newsId", 'Commented successfully!');
         }
     }
+
+    public function search () {
+        $searchProducts = null;
+        if(isset($_GET['search'])){
+            $search = $_GET['search'];
+            $searchProducts = App::get('db')->fetchSearch('products', $search);
+        }
+        
+        $randProducts = App::get('db')->fetchRandom('products', 4);
+        return view('pages/search', [
+            'randProducts' => $randProducts,
+            'searchProducts' => $searchProducts
+        ]);
+    }
 }

@@ -107,7 +107,7 @@
 }
 
 .homeHeroSection > .home {
-    background-color: rgba(11, 29, 41, 0.605);
+    background-color: rgba(11, 29, 41, 0.51);
 }
 
 .radius {
@@ -287,6 +287,13 @@
 .product-table{
     text-align: center;
     vertical-align:middle;
+}
+
+.searchDivider{
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin: auto;
 }
 
 

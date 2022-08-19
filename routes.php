@@ -15,6 +15,7 @@ $router->get('checkout', [SystemController::class, 'checkout']);
 $router->get('cart', [SystemController::class, 'cart']);
 $router->post('post_order', [SystemController::class, 'post_order']);
 $router->get('order', [SystemController::class, 'order']);
+$router->get('search', [PagesController::class, 'search']);
 
 $router->get('single_news', [PagesController::class, 'single_news']);
 $router->post('comment', [PagesController::class, 'comment']);
