@@ -67,7 +67,7 @@
 
             <div class="row g-3 mt-5">
                 <?php foreach ( $products as $product ) : ?>
-                <div class="col-sm-6 col-lg-3 p-3">
+                <div class="col-sm-6 col-lg-3 p-4">
                     <div class="productCard card border border-0 text-center">
                         <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">

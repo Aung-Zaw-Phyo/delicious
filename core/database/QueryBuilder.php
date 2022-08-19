@@ -29,23 +29,6 @@ class QueryBuilder {
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
     
-    public function join ($table, $secTable, $col, $secCol) {
-        $sql = " SELECT $table.*, $secTable.name AS category FROM $table LEFT JOIN $secTable ON $table.$col = $secTable.$secCol ";
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_OBJ);
-    }
-
-    public function count ($table, $col=null, $data=null) {
-        $sql = "SELECT * FROM $table";
-        if ($col && $data){
-            $sql = "SELECT * FROM $table WHERE $col='$data'";
-        }
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-        return $statement->rowCount();
-    }
-
     public function fetch ($table, $col, $data, $start=null, $count=null) {
         $sql = "SELECT * FROM $table WHERE $col='$data' ORDER BY id DESC";
         if ($start OR $count){
@@ -100,4 +83,38 @@ class QueryBuilder {
         $statement->execute([$data]);
         return $statement->rowCount();
     }
+
+    public function count ($table, $col=null, $data=null) {
+        $sql = "SELECT * FROM $table";
+        if ($col && $data){
+            $sql = "SELECT * FROM $table WHERE $col='$data'";
+        }
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->rowCount();
+    }
+
+    public function join ($fTable, $sTable, $fCol, $sCol, $checkCol, $checkData, $method , $arr) {
+        $str = '';
+        foreach($arr as $data) {
+            $str .= 's.'.$data.',';
+        }
+        $str = rtrim($str, ',');
+        $sql = " SELECT f.*, $str
+                FROM $fTable AS f $method JOIN $sTable AS s 
+                ON f.$fCol = s.$sCol
+                WHERE f.$checkCol='$checkData'";
+        // dd($sql);
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function orders ($userId, $action) {
+        $sql = "SELECT * FROM orders WHERE user_id=$userId && action='$action'  ORDER BY id DESC";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
 }

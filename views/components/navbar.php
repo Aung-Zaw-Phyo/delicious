@@ -23,7 +23,6 @@
                     <ul class="dropdown-menu text-center w-100 border border-0"  aria-labelledby="navbarDropdown" >
                         <li><a class="dropdown-item" href="product">Products</a></li>
                         <li><a class="dropdown-item" href="cart">Cart</a></li>
-                        <li><a class="dropdown-item" href="checkout">Check Out</a></li>
                         <li><a class="dropdown-item" href="order">Orders</a></li>
                     </ul>
                 </li>
@@ -65,7 +64,6 @@
                         <ul class="dropdown-menu shadow-sm" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item  fs" href="product">Products</a></li>
                             <li><a class="dropdown-item fs" href="cart">Cart</a></li>
-                            <li><a class="dropdown-item fs" href="checkout">Check Out</a></li>
                             <li><a class="dropdown-item fs" href="order">Orders</a></li>
                         </ul>
                     </li>

@@ -2,6 +2,7 @@
 
     <div class="aboutHeroSection">
         <div class="about h-100 w-100">
+        <?php require "views/components/pagesErr.php" ?>
             <div class="container d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 text-center p-2">
                     <div class="fw-bold text-warning "> F R E S H &nbsp; A N D &nbsp; O R G A N I C  </div>
@@ -13,6 +14,11 @@
 
     <div class="py-5">
         <div class="container py-5">
+            <?php if(!$carts): ?>
+                <div class="alert alert-warning text-center mb-4" role="alert">
+                    Your cart is empty! You need to go shopping first! <a href="product">shop</a>
+                </div>
+            <?php endif ?>
             <div class="row g-3 d-flex justify-content-between">
                 <div class="col-md-8 p-2">
 
@@ -25,7 +31,7 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <form action="/checkout" class="py-4 p-3">
+                                <form action="post_order" method="POST" class="py-4 p-3">
                                     <div class="mb-3">
                                         <input type="text" name="name" class="form-control form-control-lg normal-fs" placeholder="Name">
                                     </div>
@@ -42,7 +48,11 @@
                                         <textarea class="form-control form-control-lg normal-fs" name="message" placeholder="Say Something" cols="30" rows="5"></textarea>
                                     </div>
                                     <div>
-                                        <button type="submit" class="productBtn">Place Order</button>
+                                        <?php if($carts){ ?>
+                                            <button type="submit" name="submit" class="productBtn">Place Order</button>
+                                        <?php }else { ?>
+                                            <button type="submit" name="submit" class="productBtn" disabled>Place Order</button>
+                                        <?php } ?>
                                     </div>
                                 </form>
                             </div>
@@ -92,31 +102,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                $subTotal = 0;
+                                foreach($carts as $cart):
+                                    $subTotal += $cart->count*$cart->price;
+                                ?>
+                                    <tr>
+                                        <td  class="border py-3"><?= $cart->name ?></td>
+                                        <td  class="border py-3">$<?= $cart->count*$cart->price ?></td>
+                                    </tr>
+                                <?php endforeach?>
                                 <tr>
-                                    <td  class="border py-3">Berry</td>
-                                    <td  class="border py-3">$230</td>
-                                </tr>
-                                <tr>
-                                    <td class="border py-3">Strawberry</td>
-                                    <td class="border py-3">$30</td>
-                                </tr>
-                                <tr>
-                                    <td class="border py-3">Lemon</td>
-                                    <td class="border py-3">$23</td>
-                                </tr>
-                                <tr>
-                                    <td class="border py-3">Subtotal</td>
-                                    <td class="border py-3">$120</td>
-                                </tr>
-                                <tr>
-                                    <td class="border py-3">Shipping</td>
-                                    <td class="border py-3">$20</td>
+                                    <td  class="border py-3">Shipping</td>
+                                    <td  class="border py-3">$30</td>
                                 </tr>
                             </tbody>
                             <thead>
                                 <tr>
                                     <th class="border py-3">Total</th>
-                                    <th class="border py-3">$230</th>
+                                    <th class="border py-3">$<?= $subTotal+30 ?></th>
                                 </tr>
                             </thead>
                         </table>

@@ -32,7 +32,7 @@
                                     </td>
                                     <td class="product-table"><?= $product->name ?></td>
                                     <td class="product-table"> <?= $product->price ?> </td>
-                                    <td class="product-table"> <?=  date("F j, Y, g:i a", strtotime($product->created_at)) ?> </td>
+                                    <td class="product-table"> <?=  date("M j, Y, g:i a", strtotime($product->created_at)) ?> </td>
                                     <td class="product-table d-flex">
                                         <a href="products_edit?id=<?= $product->id ?>" class="btn btn-sm btn-primary m-2">Edit</a>
                                         <form action="products_delete" method="POST">

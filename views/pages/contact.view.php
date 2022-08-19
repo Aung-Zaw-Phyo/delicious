@@ -2,6 +2,7 @@
 
     <div class="aboutHeroSection">
         <div class="about h-100 w-100">
+        <?php require "views/components/pagesErr.php" ?>
             <div class="container d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 text-center p-2">
                     <div class="fw-bold text-warning "> G E T &nbsp; 2 4 / 7 &nbsp; S U P P O R T  </div>
@@ -19,7 +20,7 @@
                    <div>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum autem totam suscipit in ducimus dolore incidunt consequuntur sapiente eveniet asperiores!
                    </div>
-                    <form action="#" class="mt-4">
+                    <form action="message" method="POST" class="mt-4">
                         <div class="g-3 d-flex flex-wrap">
                             <div class="col-12 col-lg-6 mb- py-2 pe-2">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
@@ -36,7 +37,7 @@
                             <div class="col-12 py-2 pe-2">
                                 <textarea class="form-control" name="message" placeholder="Message" cols="30" rows="5"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-primary mt-2">Submit</button>
                         </div>
                     </form>
                 </div>

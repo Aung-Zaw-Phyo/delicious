@@ -3,17 +3,27 @@
 use controllers\AdminController;
 use controllers\AuthController;
 use controllers\PagesController;
+use controllers\SystemController;
 
 $router->get('', [PagesController::class, 'index']);
 $router->get('about', [PagesController::class, 'about']);
 $router->get('contact', [PagesController::class, 'contact']);
+$router->post('message', [PagesController::class, 'message']);
 $router->get('product', [PagesController::class, 'product']);
 $router->get('news', [PagesController::class, 'news']);
-$router->get('checkout', [PagesController::class, 'checkout']);
-$router->get('cart', [PagesController::class, 'cart']);
-$router->get('order', [PagesController::class, 'order']);
+$router->get('checkout', [SystemController::class, 'checkout']);
+$router->get('cart', [SystemController::class, 'cart']);
+$router->post('post_order', [SystemController::class, 'post_order']);
+$router->get('order', [SystemController::class, 'order']);
 
 $router->get('single_news', [PagesController::class, 'single_news']);
+$router->post('comment', [PagesController::class, 'comment']);
+
+// system 
+
+$router->post('post_cart', [SystemController::class, 'post_cart']);
+$router->post('update_cart', [SystemController::class, 'update_cart']);
+$router->post('delete_cart', [SystemController::class, 'delete_cart']);
 
 // admin 
 

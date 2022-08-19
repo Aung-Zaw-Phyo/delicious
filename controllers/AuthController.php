@@ -46,12 +46,13 @@ class AuthController {
 
             $user = liginCheck($email, $password);
             
+            $id = $user->id;
             $hash = $user->password;
             $username = $user->username;
             $isAdmin = $user->is_admin;
 
             if( password_verify($password, $hash) ) {
-                setSession($username, $isAdmin);
+                setSession($username, $id, $isAdmin);
                 redirect('/', 'Welcome back!');
             }else {
                 redirect('login', 'Password is wrong!');

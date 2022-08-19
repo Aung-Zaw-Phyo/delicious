@@ -27,8 +27,8 @@
                         <div class="p-3 py-4">
                             <div class="fw-bold lh-sm fs-4" ><?= $new->title ?></div>
                             <div class="text-secondary my-3">
-                                <span class="me-3"><i class="fa-solid fa-user"></i> Admin</span>
-                                <span><i class="fa-solid fa-calendar"></i> 27 December, 2019</span>
+                                <span class="me-3"><i class="fa-solid fa-user me-2"></i> Admin</span>
+                                <span><i class="fa-solid fa-calendar me-2"></i>  <?=  date("F j, Y", strtotime($new->created_at)) ?> </span>
                             </div>
                             <div class="normal-fs mb-4">
                                 <?= substr($new->body, 0, 50) ?>

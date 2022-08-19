@@ -2,6 +2,7 @@
 
     <div class="aboutHeroSection">
         <div class="about h-100 w-100">
+        <?php require "views/components/pagesErr.php" ?>
             <div class="container d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 text-center p-2">
                     <div class="fw-bold text-warning "> F R E S H &nbsp; A N D &nbsp; O R G A N I C  </div>
@@ -34,17 +35,20 @@
             </div>
             <div class="row g-3 mt-5">
                 <?php foreach($products as $product) :?>
-                    <div class="col-sm-6 col-lg-3 p-3">
+                    <div class="col-sm-6 col-lg-3 p-4">
                     <div class="productCard card border border-0 text-center">
                         <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">
                             <div class="normal-bold fs-5"><?= $product->name ?></div>
                             <div class="mt-2">Per Kg</div>
                             <div class="normal-bold fs-3"><?= $product->price ?>$</div>
-                            <button class="productBtn mt-3">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add to Cart
-                            </button>
+                            <form action="post_cart" method="POST">
+                                <input type="hidden" name="id" value="<?= $product->id ?>">
+                                <button type="submit" name="submit" class="productBtn mt-3">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,7 @@
 
     <div class="aboutHeroSection">
         <div class="about h-100 w-100">
+        <?php require "views/components/pagesErr.php" ?>
             <div class="container d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 text-center p-2">
                     <div class="fw-bold text-warning "> R E A D &nbsp; T H E &nbsp; D E T A I L S  </div>
@@ -21,8 +22,8 @@
                         <img class="w-100 rounded" src="/assets/uploads/news/<?= $new->thumbnail ?>" alt="">
                         <div class="p-3 py-4">
                             <div class="text-secondary">
-                                <span class="me-3"><i class="fa-solid fa-user"></i> Admin</span>
-                                <span><i class="fa-solid fa-calendar"></i> 27 December, 2019</span>
+                            <span class="me-3"><i class="fa-solid fa-user me-2"></i> Admin</span>
+                                <span><i class="fa-solid fa-calendar me-2"></i>  <?=  date("F j, Y", strtotime($new->created_at)) ?> </span>
                             </div>
                                 <div class="fw-bold lh-sm fs-4 my-3 mt-4" ><?= $new->title ?></div>
                                 <div class="normal-fs mb-4">
@@ -33,56 +34,50 @@
                     <?php endforeach ?>
 
                     <div class="mt-4">
-                        <h3 class="fw-bold mb-5">3 Comments</h3>
-                        <div class="d-flex mb-4">
-                            <div class="me-3">
-                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar1.png" alt="">
-                            </div>
-                            <div>
-                                <div class="d-flex">
-                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
+                        <?php if($counts): ?>
+                            <h3 class="fw-bold mb-5"><?= $counts?> Comments</h3>
+                        <?php endif ?>
+                        <?php foreach($comments as $comment): ?>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar1.png" alt="">
                                 </div>
-                                <div class="mt-2">
-                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
+                                <div>
+                                    <div class="d-flex">
+                                        <h5 class="fw-bold me-2"><?= $comment->name, $comment->id ?></h5>
+                                        <div class="fw-bold text-secondary"> <?=  date("M j, Y", strtotime($comment->created_at)) ?> </div>
+                                    </div>
+                                    <div class="mt-2">
+                                    <?= $comment->message ?>
+                                    </div>
                                 </div>
                             </div>
+                        <?php endforeach ?>
+                        <?php if($counts > 3): ?>
+                        <div class="mt-5 d-flex justify-content-center">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <?php
+                                        $t = 0;
+                                        for($i=0; $i<$counts; $i+=3): 
+                                            $t ++;
+                                    ?>
+                                        <li class="page-item <?= $t==$page?'active':'' ?>">
+                                            <a class="page-link" href="single_news?id=<?= $_GET['id']?>&page=<?= $t?>"> <?= $t?> </a>
+                                        </li>
+                                    <?php endfor ?>
+                                </ul>
+                            </nav>
                         </div>
-                        <div class="d-flex mb-4">
-                            <div class="me-3">
-                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar2.png" alt="">
-                            </div>
-                            <div>
-                                <div class="d-flex">
-                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
-                                </div>
-                                <div class="mt-2">
-                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="me-3">
-                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar3.png" alt="">
-                            </div>
-                            <div>
-                                <div class="d-flex">
-                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
-                                </div>
-                                <div class="mt-2">
-                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
-                                </div>
-                            </div>
-                        </div>
+                    <?php endif ?>
                     </div>
 
                     <div class="commentFormSection mt-5">
                         <h3 class="fw-bold">Leave a comment</h3>
                         <div class="text-secondary mt-3">If you have a comment dont feel hesitate to send us your opinion.</div>
 
-                        <form action="" class="mt-4">
+                        <form action="comment" method="POST" class="mt-4">
+                            <input type="hidden" name="id" value="<?= $_GET['id']?>">
                             <div class="row mb-3 g-3">
                                 <div class="col-lg-6">
                                     <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name">
@@ -92,10 +87,9 @@
                                 </div>
                             </div>
                             <textarea name="message" class="form-control form-control-lg mb-3" cols="30" rows="5" placeholder="Your Message"></textarea>
-                            <button class="productBtn" type="submit">Submit</button>
+                            <button class="productBtn" type="submit" name="submit">Submit</button>
                         </form>
                     </div>
-                    
                 </div>
             </div>
 

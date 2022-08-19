@@ -18,6 +18,11 @@ function take ($file) {
 }
 
 function checkCount ($data,int $count, $uri, $err=null) {
+    if(strlen($data)==0){
+        setcookie('err', "All fields are required to fill!", time() + 1);
+        header("location: $uri");
+        exit();
+    }
     if (!(strlen($data)>=$count)) {
         if ($err) {
             setcookie('err', $err, time() + 1);
@@ -36,19 +41,28 @@ function redirect ($uri, $err=null) {
 }
 
 function emailCheck ($email, $uri) {
+    if(strlen($email)==0){
+        setcookie('err', "Email field is required!", time() + 1);
+        header("location: $uri");
+        exit();
+    }
     if(strlen($email) >= 13){
         $check = preg_match('/^[a-zA-Z0-9]+@[a-z]+\.+[a-z]{2,4}+$/', $email);
         if (!$check) {
-            redirect($uri, 'Email must be email format!');
+            redirect($uri, 'Invalid Email!');
         }
     }else {
         redirect($uri, 'Email must be at least 13 characters!');
     }
 }
 
-function setSession ($username, $isAdmin=false) {
+function setSession ($username, $id=null, $isAdmin=false) {
+    if(!$id){
+        $id = App::get('db')->fetch('users', 'username', $username)[0]->id;
+    }
     $_SESSION['user'] = [
         'username' => $username,
+        'id' => $id,
         'is_admin' => $isAdmin
     ];
 }
