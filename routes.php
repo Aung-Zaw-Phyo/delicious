@@ -1,6 +1,7 @@
 <?php
 
 use controllers\AdminController;
+use controllers\AdminFeatureController;
 use controllers\AuthController;
 use controllers\PagesController;
 use controllers\SystemController;
@@ -52,6 +53,14 @@ $router->post('products_delete', [AdminController::class, 'products_delete']);
 $router->post('news_delete', [AdminController::class, 'news_delete']);
 $router->post('categories_delete', [AdminController::class, 'categories_delete']);
 
+$router->get('users', [AdminFeatureController::class, 'users']);
+$router->post('user_delete', [AdminFeatureController::class, 'user_delete']);
+$router->get('user_order', [AdminFeatureController::class, 'user_order']);
+
+$router->get('admin_contact', [AdminFeatureController::class, 'admin_contact']);
+
+$router->get('admin_orders', [AdminFeatureController::class, 'admin_orders']);
+$router->post('order_complete', [AdminFeatureController::class, 'order_complete']);
 
 // Authentication 
 

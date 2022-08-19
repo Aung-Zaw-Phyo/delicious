@@ -124,6 +124,20 @@ class QueryBuilder {
         return $statement->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function orderJoin ($fTable, $sTable, $fCol, $sCol,$method , $arr, $action, $start, $count) {
+        $str = '';
+        foreach($arr as $data) {
+            $str .= 's.'.$data.',';
+        }
+        $str = rtrim($str, ',');
+        $sql = " SELECT f.*, $str
+                FROM $fTable AS f $method JOIN $sTable AS s 
+                ON f.$fCol = s.$sCol WHERE action='$action' ORDER BY id DESC LIMIT $start, $count";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function orders ($userId, $action) {
         $sql = "SELECT * FROM orders WHERE user_id=$userId && action='$action'  ORDER BY id DESC";
         $statement = $this->pdo->prepare($sql);

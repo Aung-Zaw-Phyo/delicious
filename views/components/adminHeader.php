@@ -198,13 +198,13 @@
 
                         <ul class="list-group">
                             <li class="list-group-item">
-                             <i class="fa-solid fa-users me-2"></i> Users
+                                <a href="users" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Users</a>
                             </li>
                             <li class="list-group-item">
-                                <i class="fa-solid fa-message me-2"></i> Contact
+                                <a href="admin_contact" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-message me-2"></i> Contact</a>
                             </li>
                             <li class="list-group-item">
-                                <i class="fa-solid fa-bell me-2"></i> Orders
+                                <a href="admin_orders" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Orders</a>
                             </li>
                             
                         </ul>

@@ -68,7 +68,7 @@ class AdminController {
             redirect('admin_index');
         }
         return view('admin/product_edit', [
-            'product' => App::get('db')->fetch('products', $id)[0],
+            'product' => App::get('db')->fetch('products','id', $id)[0],
             'categories' => App::get('db')->fetchAll('categories')
         ]);
     }
@@ -165,10 +165,23 @@ class AdminController {
     }
 
     public function admin_single_news () {
+        if(!isset($_GET['id'])){
+            redirect('admin_news');
+        }
         $id = $_GET['id'];
-        $news = App::get('db')->fetch('news','id' ,$id);
+        $start = 0;
+        if ( isset($_GET['page']) ) {
+            $point = $_GET['page'] * 3;
+            $start = $point - 3;
+        }
+        
+        $comments = App::get('db')->fetch('comments', 'news_id', $id, $start, 3);
+        $counts = App::get('db')->count('comments', 'news_id', $id);
         return view('admin/admin_single_news', [
-            'news' => $news
+            'news' => App::get('db')->fetch('news','id' ,$id),
+            'comments' => $comments,
+            'counts' => $counts,
+            'page' => $_GET['page']?? 1,
         ]);
     }
 
@@ -179,7 +192,7 @@ class AdminController {
             redirect('admin_news');
         }
         return view('admin/news_edit', [
-            'news' => App::get('db')->fetch('news', $id)[0]
+            'news' => App::get('db')->fetch('news', 'id', $id)[0]
         ]);
     }
 
@@ -262,7 +275,7 @@ class AdminController {
             redirect('admin_category');
         }
         return view('admin/category_edit', [
-            'category' => App::get('db')->fetch('categories', $id)[0]
+            'category' => App::get('db')->fetch('categories', 'id', $id)[0]
         ]);
     }
 

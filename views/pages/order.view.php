@@ -30,7 +30,7 @@
                             </div>
                             <div class="mb-2">
                                 <div class="text-secondary fw-bold">Total Price</div>
-                                <div>$<?= $order->total_price ?> + shipping - $30 = $<?= $order->total_price+30 ?></div>
+                                <div>$<?= $order->total_price ?> + shipping : $30 = $<?= $order->total_price+30 ?></div>
                             </div>
                             <div class="mb-2">
                                 <div class="text-secondary fw-bold">Name</div>

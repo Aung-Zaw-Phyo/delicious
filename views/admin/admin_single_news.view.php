@@ -25,50 +25,44 @@
                                         </div>
                                     </div>
                                     <?php endforeach ?>
+
                                     <div class="mt-4">
-                                        <h3 class="fw-bold mb-5">3 Comments</h3>
-                                        <div class="d-flex mb-4">
-                                            <div class="me-3">
-                                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar1.png" alt="">
-                                            </div>
-                                            <div>
-                                                <div class="d-flex">
-                                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
+                                        <?php if($counts): ?>
+                                            <h3 class="fw-bold mb-5"><?= $counts?> Comments</h3>
+                                        <?php endif ?>
+                                        <?php foreach($comments as $comment): ?>
+                                            <div class="d-flex mb-4">
+                                                <div class="me-3">
+                                                    <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar1.png" alt="">
                                                 </div>
-                                                <div class="mt-2">
-                                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
+                                                <div>
+                                                    <div class="d-flex">
+                                                        <h5 class="fw-bold me-2"><?= $comment->name, $comment->id ?></h5>
+                                                        <div class="fw-bold text-secondary"> <?=  date("M j, Y", strtotime($comment->created_at)) ?> </div>
+                                                    </div>
+                                                    <div class="mt-2">
+                                                    <?= $comment->message ?>
+                                                    </div>
                                                 </div>
                                             </div>
+                                        <?php endforeach ?>
+                                        <?php if($counts > 3): ?>
+                                        <div class="mt-5 d-flex justify-content-center">
+                                            <nav aria-label="...">
+                                                <ul class="pagination">
+                                                    <?php
+                                                        $t = 0;
+                                                        for($i=0; $i<$counts; $i+=3): 
+                                                            $t ++;
+                                                    ?>
+                                                        <li class="page-item <?= $t==$page?'active':'' ?>">
+                                                            <a class="page-link" href="admin_single_news?id=<?= $_GET['id']?>&page=<?= $t?>"> <?= $t?> </a>
+                                                        </li>
+                                                    <?php endfor ?>
+                                                </ul>
+                                            </nav>
                                         </div>
-                                        <div class="d-flex mb-4">
-                                            <div class="me-3">
-                                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar2.png" alt="">
-                                            </div>
-                                            <div>
-                                                <div class="d-flex">
-                                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
-                                                </div>
-                                                <div class="mt-2">
-                                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex mb-4">
-                                            <div class="me-3">
-                                                <img width="55" class="rounded-circle" src="/assets/img/avaters/avatar3.png" alt="">
-                                            </div>
-                                            <div>
-                                                <div class="d-flex">
-                                                    <h5 class="fw-bold me-2">Jenny Joe</h5>
-                                                    <div class="fw-bold text-secondary">Aprl 26, 2020</div>
-                                                </div>
-                                                <div class="mt-2">
-                                                    Nunc risus ex, tempus quis purus ac, tempor consequat ex. Vivamus sem magna, maximus at est id, maximus aliquet nunc. Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus Suspendisse lacinia velit a eros porttitor, in interdum ante faucibus.
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?php endif ?>
                                     </div>
                                 </div>
                             </div>
