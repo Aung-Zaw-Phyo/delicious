@@ -67,17 +67,20 @@
 
             <div class="row g-3 mt-5">
                 <?php foreach ( $products as $product ) : ?>
-                <div class="col-sm-6 col-lg-3 p-4">
+                    <div class="col-sm-6 col-lg-3 p-4">
                     <div class="productCard card border border-0 text-center">
                         <img class="p-2" src="/assets/uploads/products/<?= $product->thumbnail ?>" alt="">
                         <div class="pb-5">
                             <div class="normal-bold fs-5"><?= $product->name ?></div>
                             <div class="mt-2">Per Kg</div>
                             <div class="normal-bold fs-3"><?= $product->price ?>$</div>
-                            <button class="productBtn mt-3">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                Add to Cart
-                            </button>
+                            <form action="home_post_cart" method="POST">
+                                <input type="hidden" name="id" value="<?= $product->id ?>">
+                                <button type="submit" name="submit" class="productBtn mt-3">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                    Add to Cart
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -151,9 +154,9 @@
                             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit doloremque repellendus, quaerat explicabo illo odit labore error in at esse. Quam nesciunt eligendi id vitae?
                         </div>
                     </div>
-                    <button class="productBtn mt-3 normal-fs">
+                    <a href="about" class="productBtn mt-3 normal-fs text-decoration-none text-light">
                                 Know More
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -221,9 +224,9 @@
             </div>
 
             <div class="d-flex justify-content-center mt-5">
-                <button class="productBtn mt-3 normal-fs">
+                <a href="news" class="productBtn mt-3 normal-fs text-decoration-none text-light">
                             More News
-                </button>
+                </a>
             </div>
         </div>
     </div>

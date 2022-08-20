@@ -96,3 +96,15 @@ function liginCheck ($email, $password) {
     
     return App::get('db')->fetch('users', 'email', $email)[0];
 }
+
+function auth () {
+    if(!isset($_SESSION['user'])){
+        redirect('login', 'Please login!');
+    }
+}
+
+function admin () {
+    if( !( isset($_SESSION['user']) && $_SESSION['user']['is_admin'] ) ) {
+        redirect('/');
+    }
+}

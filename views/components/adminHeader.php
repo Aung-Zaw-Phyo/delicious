@@ -36,10 +36,13 @@
                             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user  "></i>
                             </button>
-                            <ul class="dropdown-menu text-center border border-0 shadow-sm" style="left: -180px; margin-top: 20px;" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                                <li><a class="dropdown-item" href="#">username: johndoe</a></li>
-                                <li><a class="dropdown-item" href="#">email: johndoe@gmail.com</a></li>
+                            <ul class="dropdown-menu text-center border border-0 shadow" style="left: -120px; margin-top: 20px;" aria-labelledby="dropdownMenuButton1">
+                                <li class=""><span class="dropdown-item text-break" href="login">username: <?= $_SESSION['user']['username'] ?> </span></li>
+                                <li>
+                                    <form action="logout" method="POST">
+                                        <button type="submit" name="submit" class="dropdown-item fs text-primary" href="logout">Logout</button>
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -65,7 +68,7 @@
                                 <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
                                     <i class="fa-solid fa-circle-check me-2 "></i> </i>Products
                                 </a></li>
-                                <li><a href="admin_index" class="text-decoration-none text-dark">
+                                <li><a href="product_create" class="text-decoration-none text-dark">
                                     <i class="fa-solid fa-circle-check me-2 "></i> Create
                                 </a></li>
                             </ul>
@@ -81,10 +84,10 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
+                                    <li class="mb-2"><a href="admin_news" class="text-decoration-none text-dark">
                                         <i class="fa-solid fa-circle-check me-2 "></i> </i>News
                                     </a></li>
-                                    <li><a href="admin_index" class="text-decoration-none text-dark">
+                                    <li><a href="news_create" class="text-decoration-none text-dark">
                                         <i class="fa-solid fa-circle-check me-2 "></i> Create
                                     </a></li>
                                 </ul>                                    
@@ -100,10 +103,10 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><a href="admin_index" class="text-decoration-none text-dark">
+                                    <li class="mb-2"><a href="admin_category" class="text-decoration-none text-dark">
                                         <i class="fa-solid fa-circle-check me-2 "></i> </i>Categories
                                     </a></li>
-                                    <li><a href="admin_index" class="text-decoration-none text-dark">
+                                    <li><a href="category_create" class="text-decoration-none text-dark">
                                         <i class="fa-solid fa-circle-check me-2 "></i> Create
                                     </a></li>
                                 </ul>                                  
@@ -115,13 +118,13 @@
 
             <ul class="list-group">
                 <li class="list-group-item">
-                    <i class="fa-solid fa-users me-2"></i> Users
+                    <a href="users" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Users</a>
                 </li>
                 <li class="list-group-item">
-                    <i class="fa-solid fa-message me-2"></i> Contact
+                    <a href="admin_contact" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-message me-2"></i> Contact</a>
                 </li>
                 <li class="list-group-item">
-                    <i class="fa-solid fa-bell me-2"></i> Orders
+                    <a href="admin_orders" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Orders</a>
                 </li>
                 
             </ul>

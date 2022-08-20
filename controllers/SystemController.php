@@ -8,7 +8,7 @@ class SystemController {
 
     public function __construct()
     {
-        
+        auth();
     }
 
     public function cart () {
@@ -28,6 +28,18 @@ class SystemController {
                 'product_id' => $productId
             ]);
             redirect('product', 'Cart added!');
+        }
+    }
+
+    public function home_post_cart () {
+        if(isset($_POST['submit'])){
+            $productId = $_POST['id'];
+            $userId = $_SESSION['user']['id'];
+            App::get('db')->insert('carts', [
+                'user_id' => $userId,
+                'product_id' => $productId
+            ]);
+            redirect('/', 'Cart added!');
         }
     }
 

@@ -24,6 +24,7 @@ $router->post('comment', [PagesController::class, 'comment']);
 // system 
 
 $router->post('post_cart', [SystemController::class, 'post_cart']);
+$router->post('home_post_cart', [SystemController::class, 'home_post_cart']);
 $router->post('update_cart', [SystemController::class, 'update_cart']);
 $router->post('delete_cart', [SystemController::class, 'delete_cart']);
 

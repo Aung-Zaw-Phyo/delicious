@@ -6,6 +6,11 @@ use core\App;
 
 class AdminController {
 
+    public function __construct()
+    {
+        admin();
+    }
+
     public function index () {
         $start = 1;
         if ( isset($_GET['page']) ) {

@@ -7,7 +7,7 @@ use core\App;
 class AdminFeatureController {
     public function __construct()
     {
-        
+        admin();
     }
 
     public function users () {
