@@ -11,10 +11,12 @@ class AuthController {
     }
 
     public function login () {
+        guest();
         return view('auth/login');
     }
 
     public function register () {
+        guest();
         return view('auth/register');
     }
 

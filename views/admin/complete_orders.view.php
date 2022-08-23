@@ -5,7 +5,7 @@
         <?php take('views/components/err.php') ?>
         <h3 class="text-center"> Orders </h3>
         <div class="mt-5 d-flex justify-content-between">
-            <span class="fs-4">Pending Orders</span><a href="admin_complete_order" class="btn btn-outline-dark">Complete Orders</a>
+            <span class="fs-4">Complete Orders</span><a href="admin_orders" class="btn btn-outline-dark">Pending Orders</a>
         </div>
             <div class="row g-3 mt-3 d-flex align-items-stretch">
                 <?php 
@@ -16,9 +16,9 @@
                     <div class="col-md-6 col-lg-4 p-2">
                         <div class="card h-100 shadow p-2 position-relative">
                             <div class="position-absolute top-0 end-0">
-                                <form action="order_complete" method="POST">
+                                <form action="order_pending" method="POST">
                                     <input type="hidden" name="id" value="<?= $order->id ?>">
-                                    <button class="btn btn-sm btn-outline-primary m-2" type="submit" name="submit">Complete</button>
+                                    <button class="btn btn-sm btn-outline-primary m-2" type="submit" name="submit">Pending</button>
                                 </form>
                             </div>
                             <div class="mb-2">
@@ -81,7 +81,7 @@
                                     $t ++;
                             ?>
                                 <li class="page-item <?= $t==$page?'active':'' ?>">
-                                    <a class="page-link" href="admin_orders?page=<?= $t?>"> <?= $t?> </a>
+                                    <a class="page-link" href="admin_complete_order?page=<?= $t?>"> <?= $t?> </a>
                                 </li>
                             <?php endfor ?>
                         </ul>

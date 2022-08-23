@@ -12,7 +12,7 @@
                         <form action="update_category" method="POST">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" value="<?= $category->name ?>" id="name" placeholder="Category name ...">
+                                <input type="text" class="form-control" name="name" value="<?= $category->name ?>" id="name" placeholder="Category name ..." required>
                                 <input type="hidden" name="id" value="<?= $category->id ?>">
                             </div>
                             <button class="btn btn-primary" name="submit" type="submit">Submit</button>

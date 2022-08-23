@@ -23,19 +23,19 @@
                     <form action="message" method="POST" class="mt-4">
                         <div class="g-3 d-flex flex-wrap">
                             <div class="col-12 col-lg-6 mb- py-2 pe-2">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                             </div>
                             <div class="col-12 col-lg-6 mb- py-2 pe-2">
-                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
                             </div>
                             <div class="col-12 col-lg-6 mb- py-2 pe-2">
-                                <input type="number" name="phone" class="form-control" id="phone" placeholder="Your Phone">
+                                <input type="number" name="phone" class="form-control" id="phone" placeholder="Your Phone" required>
                             </div>
                             <div class="col-12 col-lg-6 mb- py-2 pe-2">
-                                <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject">
+                                <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
                             </div>
                             <div class="col-12 py-2 pe-2">
-                                <textarea class="form-control" name="message" placeholder="Message" cols="30" rows="5"></textarea>
+                                <textarea class="form-control" name="message" placeholder="Message" cols="30" rows="5" required></textarea>
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary mt-2">Submit</button>
                         </div>

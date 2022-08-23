@@ -37,10 +37,12 @@
                     <div class="normal-fs mt-2">
                         Subscribe to our mailing list to get the latest updates.
                     </div>
-                    <div class="input-group mt-4">
-                        <input type="text" class="form-control form-control-lg text-light" style="background-color: transparent;" placeholder="Email" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-light" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
-                    </div>
+                    <form action="subscribe" method="POST">
+                        <div class="input-group mt-4">
+                            <input type="email" name="email" class="form-control form-control-lg text-light" style="background-color: transparent;" placeholder="Email"  required>
+                            <button class="btn btn-outline-light" type="submit" name="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

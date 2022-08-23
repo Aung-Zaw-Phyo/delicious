@@ -11,11 +11,11 @@
                             <input type="hidden" name="id"  value="<?= $news->id ?>">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" value="<?= $news->title ?>" class="form-control" name="title" id="title" placeholder="News title ...">
+                                <input type="text" value="<?= $news->title ?>" class="form-control" name="title" id="title" placeholder="News title ..." required>
                             </div>
                             <div class="mb-3">
                                 <label for="body" class="form-label">Body</label>
-                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5">
+                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5" required>
                                 <?= $news->body ?> 
                                 </textarea>
                             </div>

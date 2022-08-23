@@ -21,6 +21,8 @@ $router->get('search', [PagesController::class, 'search']);
 $router->get('single_news', [PagesController::class, 'single_news']);
 $router->post('comment', [PagesController::class, 'comment']);
 
+$router->post('subscribe', [PagesController::class, 'subscribe']);
+
 // system 
 
 $router->post('post_cart', [SystemController::class, 'post_cart']);
@@ -54,14 +56,27 @@ $router->post('products_delete', [AdminController::class, 'products_delete']);
 $router->post('news_delete', [AdminController::class, 'news_delete']);
 $router->post('categories_delete', [AdminController::class, 'categories_delete']);
 
+// users 
 $router->get('users', [AdminFeatureController::class, 'users']);
 $router->post('user_delete', [AdminFeatureController::class, 'user_delete']);
 $router->get('user_order', [AdminFeatureController::class, 'user_order']);
 
+// subscribers 
+$router->get('subscribers', [AdminFeatureController::class, 'subscribers']);
+$router->post('subscriber_delete', [AdminFeatureController::class, 'subscriber_delete']);
+
+// contact 
 $router->get('admin_contact', [AdminFeatureController::class, 'admin_contact']);
 
+//orders
 $router->get('admin_orders', [AdminFeatureController::class, 'admin_orders']);
+$router->get('admin_complete_order', [AdminFeatureController::class, 'admin_complete_order']);
 $router->post('order_complete', [AdminFeatureController::class, 'order_complete']);
+$router->post('order_pending', [AdminFeatureController::class, 'order_pending']);
+
+//money
+$router->get('money', [AdminFeatureController::class, 'money']);
+
 
 // Authentication 
 

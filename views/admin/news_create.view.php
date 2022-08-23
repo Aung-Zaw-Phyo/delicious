@@ -10,15 +10,15 @@
                         <form action="post_news" method="POST" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="News title ...">
+                                <input type="text" class="form-control" name="title" id="title" placeholder="News title ..." required>
                             </div>
                             <div class="mb-3">
                                 <label for="body" class="form-label">Body</label>
-                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5"></textarea>
+                                <textarea class="form-control" name="body" id="body" placeholder="News body ..." rows="5" required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="thumbnail" class="form-label">Thumbnail</label>
-                                <input type="file" class="form-control" name="thumbnail" id="thumbnail" placeholder="News Img ...">
+                                <input type="file" class="form-control" name="thumbnail" id="thumbnail" placeholder="News Img ..." required>
                             </div>
                             <button class="btn btn-primary" name="submit" type="submit">Submit</button>
                         </form>

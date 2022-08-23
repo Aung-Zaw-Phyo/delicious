@@ -121,12 +121,17 @@
                     <a href="users" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Users</a>
                 </li>
                 <li class="list-group-item">
+                    <a href="subscribers" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Subscribers</a>
+                </li>
+                <li class="list-group-item">
                     <a href="admin_contact" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-message me-2"></i> Contact</a>
                 </li>
                 <li class="list-group-item">
                     <a href="admin_orders" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Orders</a>
                 </li>
-                
+                <li class="list-group-item">
+                    <a href="money" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Money</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -204,12 +209,17 @@
                                 <a href="users" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Users</a>
                             </li>
                             <li class="list-group-item">
+                                <a href="subscribers" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-users me-2"></i> Subscribers</a>
+                            </li>
+                            <li class="list-group-item">
                                 <a href="admin_contact" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-message me-2"></i> Contact</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="admin_orders" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Orders</a>
                             </li>
-                            
+                            <li class="list-group-item">
+                                <a href="money" class="text-decoration-none text-dark admin_link_icon"><i class="fa-solid fa-bell me-2"></i> Money</a>
+                            </li>
                         </ul>
 
                     </div>

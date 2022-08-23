@@ -76,12 +76,12 @@ function registerCheck ($name, $username, $email, $password) {
     
     $isUserExist = App::get('db')->isExist('users', 'username', $username);
     if($isUserExist){
-        redirect('register', "Username is already had!");
-    }
+        redirect('register', "Username has already been existed!");
+    } 
     
     $isEmailExist = App::get('db')->isExist('users', 'email', $email);
     if($isEmailExist){
-        redirect('register', "Email is already been taken!");
+        redirect('register', "Email has already been existed!");
     }
 }
 
@@ -105,6 +105,12 @@ function auth () {
 
 function admin () {
     if( !( isset($_SESSION['user']) && $_SESSION['user']['is_admin'] ) ) {
+        redirect('/');
+    }
+}
+
+function guest ()  {
+    if(isset($_SESSION['user'])){
         redirect('/');
     }
 }

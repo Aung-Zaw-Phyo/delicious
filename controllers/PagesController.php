@@ -143,4 +143,19 @@ class PagesController {
             'searchProducts' => $searchProducts
         ]);
     }
+
+    public function subscribe () {
+        if(isset($_POST['submit'])){
+            $email = $_POST['email'];
+            emailCheck($email, '/');
+            $result = App::get('db')->isExist('subscribers', 'email', $email);
+            if($result){
+                redirect('/', 'You have subscribed!');
+            }
+            App::get('db')->insert('subscribers', [
+                'email' => $email
+            ]);
+            redirect('/', 'Subscribed successfully!');
+        }
+    }
 }

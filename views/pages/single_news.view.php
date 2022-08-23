@@ -80,13 +80,13 @@
                             <input type="hidden" name="id" value="<?= $_GET['id']?>">
                             <div class="row mb-3 g-3">
                                 <div class="col-lg-6">
-                                    <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
                                 </div>
                                 <div class="col-lg-6">
-                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
                                 </div>
                             </div>
-                            <textarea name="message" class="form-control form-control-lg mb-3" cols="30" rows="5" placeholder="Your Message"></textarea>
+                            <textarea name="message" class="form-control form-control-lg mb-3" cols="30" rows="5" placeholder="Your Message" required></textarea>
                             <button class="productBtn" type="submit" name="submit">Submit</button>
                         </form>
                     </div>

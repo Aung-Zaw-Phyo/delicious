@@ -33,19 +33,19 @@
                             <div class="accordion-body">
                                 <form action="post_order" method="POST" class="py-4 p-3">
                                     <div class="mb-3">
-                                        <input type="text" name="name" class="form-control form-control-lg normal-fs" placeholder="Name">
+                                        <input type="text" name="name" class="form-control form-control-lg normal-fs" placeholder="Name" required>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="email" name="email" class="form-control form-control-lg normal-fs" placeholder="Email">
+                                        <input type="email" name="email" class="form-control form-control-lg normal-fs" placeholder="Email" required>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" name="address" class="form-control form-control-lg normal-fs" placeholder="Address">
+                                        <input type="text" name="address" class="form-control form-control-lg normal-fs" placeholder="Address" required>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="number" name="phone" class="form-control form-control-lg normal-fs" placeholder="Phone">
+                                        <input type="number" name="phone" class="form-control form-control-lg normal-fs" placeholder="Phone" required>
                                     </div>
                                     <div class="mb-3">
-                                        <textarea class="form-control form-control-lg normal-fs" name="message" placeholder="Say Something" cols="30" rows="5"></textarea>
+                                        <textarea class="form-control form-control-lg normal-fs" name="message" placeholder="Say Something" cols="30" rows="5" required></textarea>
                                     </div>
                                     <div>
                                         <?php if($carts){ ?>
