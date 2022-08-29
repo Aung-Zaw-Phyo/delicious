@@ -26,6 +26,7 @@ Admin Features
 - Category (crud)
 - Check all users
 - Check pending orders and completed orders
+- Check pending money and income money
 - Check messages
 - Check customers' ordered lists
 - Check Blog comments
